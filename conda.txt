@@ -1,0 +1,32 @@
+conda create --name ccenv python=3.6
+conda install scikit-learn scipy pandas numpy matplotlib jupyter
+#had to do this on mac, don’t have to do below in Linux or windows
+pip install widgetsnbextension
+
+
+list environments:
+conda info --envs
+
+remove environment:
+conda remove --name ccenv --all
+
+
+import matplotlib.pyplot as plt
+from sklearn import datasets
+iris = datasets.load_iris()
+digits = datasets.load_digits()
+from sklearn import svm
+clf = svm.SVC(gamma=0.001, C=100.)
+clf.fit(digits.data[:-1], digits.target[:-1])  
+clf.predict(digits.data[-1:])
+
+
+
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import numpy as np
+img=mpimg.imread('myimage.png')
+# end
+# from now on you can use img as an image, but make sure you know what you are doing!
+imgplot=plt.imshow(img)
+plt.show()
